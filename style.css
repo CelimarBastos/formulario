@@ -12,7 +12,7 @@ body {
   width: 100%;
   max-width: 900px;
   aspect-ratio: 8/11;
-  background: url('fundo.jpg') no-repeat center top;
+  background: url('fundo.JPG') no-repeat center top;
   background-size: contain;
 }
 
