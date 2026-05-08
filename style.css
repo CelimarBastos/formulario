@@ -1,57 +1,90 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Ordem de Serviço Brisanet</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  background: #f0f0f0;
+}
 
-    .form-container {
-      position: relative;
-      width: 1000px; /* ajuste conforme o tamanho da imagem */
-      height: 1400px; /* ajuste conforme o tamanho da imagem */
-      background-image: url('fundo.JPG'); /* nome da imagem de fundo */
-      background-size: cover;
-      background-position: top left;
-      margin: 0 auto;
-    }
+.form-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 8/11;
+  background: url('fundo.jpg') no-repeat center top;
+  background-size: contain;
+}
 
-    .campo {
-      position: absolute;
-      transform: translate(-50%, -50%);
-    }
+.campo {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 9px;
+  padding: 2px;
+  background: transparent;
+  border: none;
+  color: black;
+}
 
-    /* Exemplo de posicionamento dos checkboxes */
-    #tv { top: 200px; left: 150px; }
-    #ponto { top: 200px; left: 350px; }
-    #internet { top: 200px; left: 550px; }
-    #telefonia { top: 200px; left: 750px; }
+input[type="checkbox"], input[type="radio"] {
+  background: transparent;
+  accent-color: #060e09;
+  width: 9px;
+  height: 20px;
+}
 
-    #kit_sim { top: 700px; left: 150px; }
-    #kit_nao { top: 700px; left: 250px; }
+#cliente {
+  top: 21%; left: 85%; width: 40%;
+}
 
-    #estado_sim { top: 800px; left: 150px; }
-    #estado_nao { top: 800px; left: 250px; }
+#cpf {
+  top: 23.7%; left: 85%; width: 25%;
+}
 
-    /* Adicione mais campos conforme necessário */
-  </style>
-</head>
-<body>
-  <div class="form-container">
-    <input type="checkbox" id="tv" class="campo">
-    <input type="checkbox" id="ponto" class="campo">
-    <input type="checkbox" id="internet" class="campo">
-    <input type="checkbox" id="telefonia" class="campo">
+#dia { top: 88.6%; left: 42%; width: 4%; }
+#mes { top: 88.6%; left: 57%; width: 12%; }
+#ano { top: 88.6%; left: 73%; width: 6%; }
+#cidade { top: 88.6%; left: 32%; width: 13%; }
 
-    <input type="checkbox" id="kit_sim" class="campo">
-    <input type="checkbox" id="kit_nao" class="campo">
+#tv { top: 29%; left: 25%; }
+#ponto { top: 29%; left: 42%; }
+#internet { top: 29%; left: 61%; }
+#telefonia { top: 29%; left: 71%; }
 
-    <input type="checkbox" id="estado_sim" class="campo">
-    <input type="checkbox" id="estado_nao" class="campo">
-  </div>
-</body>
-</html>
+#onu { top: 37.3%; left: 50%; width: 40%; }
+#receptor { top: 41%; left: 55%; width: 40%; }
+#roteador { top: 45%; left: 55%; width: 40%; }
+#telefone { top: 48%; left: 55%; width: 40%; }
+
+#kit_sim { top: 51%; left: 40%; }
+#kit_nao { top: 51%; left: 47%; }
+#obs_kit { top: 53.6%; left: 53%; width: 60%; }
+
+#estado_sim { top: 58.8%; left: 66%; }
+#estado_nao { top: 58.8%; left: 74%; }
+#obs_estado { top: 62%; left: 52%; width: 60%; }
+
+#protocolo { top: 70.3%; left: 50%; width: 20%; }
+#tecnico { top: 74.7%; left: 60%; width: 50%; }
+#responsavel { top: 79%; left: 50%; width: 50%; }
+#parentesco { top: 83.3%; left: 50%; width: 50%; }
+
+.actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  background: #2E8B57;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #246b45;
+}
