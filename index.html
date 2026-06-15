@@ -172,9 +172,35 @@
       });
     }
     
+    // Máscara de CPF: XXX.XXX.XXX-XX
+    function aplicarMascaraCpf(input) {
+      input.addEventListener('input', function() {
+        let valor = this.value.replace(/[^0-9]/g, '').slice(0, 11);
+        let resultado = '';
+        
+        if (valor.length > 0) {
+          resultado += valor.substring(0, 3);
+        }
+        if (valor.length > 3) {
+          resultado += '.' + valor.substring(3, 6);
+        }
+        if (valor.length > 6) {
+          resultado += '.' + valor.substring(6, 9);
+        }
+        if (valor.length > 9) {
+          resultado += '-' + valor.substring(9, 11);
+        }
+        
+        this.value = resultado;
+      });
+    }
+    
     // Aplicar máscara nos campos ONU e Receptor
     aplicarMascaraMac(document.getElementById('onu'));
     aplicarMascaraMac(document.getElementById('receptor'));
+    
+    // Aplicar máscara no CPF
+    aplicarMascaraCpf(document.getElementById('cpf'));
     
     function salvarImagem() {
       html2canvas(document.getElementById("formulario")).then(canvas => {
