@@ -4,223 +4,160 @@
   <meta charset="UTF-8">
   <title>Ordem de Serviço - Brisanet</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      background: #f0f0f0;
-    }
-
-    .form-container {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      aspect-ratio: 8/11; /* mantém proporção da folha */
-      background: url('https://raw.githubusercontent.com/CelimarBastos/formulario/main/fundo.JPG') no-repeat center top; /* imagem da folha */
-      background-size: contain;
-    }
-
-    .campo {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      font-size: 9px;
-      padding: 2px;
-      background: transparent;   /* fundo transparente */
-      border: none;              /* sem borda */
-      color: black;              /* texto visível */
-    }
-
-    /* Checkboxes transparentes */
-    input[type="checkbox"], input[type="radio"] {
-      background: transparent;
-      accent-color: #060e09; /* cor do check (verde) */
-      width: 9px;
-      height: 20px;
-    }
-    /*nome cliente e CPF */
-    #cliente {
-      top: 21%; left: 85%; width: 40%;
-    }
-    /* CPF */
-    #cpf {
-      top: 23.7%; left: 85%; width: 25%;
-    }
-    /* Cidade, Dia, mês e ano */
+    body { margin: 0; padding: 0; font-family: Arial, sans-serif; display: flex; justify-content: center; background: #f0f0f0; }
+    .form-container { position: relative; width: 100%; max-width: 900px; aspect-ratio: 8/11; background: url('https://raw.githubusercontent.com/CelimarBastos/formulario/main/fundo.JPG') no-repeat center top; background-size: contain; }
+    .campo { position: absolute; transform: translate(-50%, -50%); font-size: 9px; padding: 2px; background: transparent; border: none; color: black; }
+    input[type="checkbox"], input[type="radio"] { background: transparent; accent-color: #060e09; width: 9px; height: 20px; }
+    #cliente { top: 21%; left: 85%; width: 40%; }
+    #cpf { top: 23.7%; left: 85%; width: 25%; }
     #dia { top: 88.6%; left: 42%; width: 4%; }
     #mes { top: 88.6%; left: 57%; width: 12%; }
     #ano { top: 88.6%; left: 73%; width: 6%; }
     #cidade { top: 88.6%; left: 32%; width: 13%; }
-
-    /* Serviços cancelados */
     #tv { top: 29%; left: 25%; }
     #ponto { top: 29%; left: 42%; }
     #internet { top: 29%; left: 61%; }
     #telefonia { top: 29%; left: 71%; }
-
-    /* Equipamentos */
     #onu { top: 37.3%; left: 50%; width: 40%; }
     #receptor { top: 41%; left: 55%; width: 40%; }
     #roteador { top: 45%; left: 55%; width: 40%; }
     #telefone { top: 48%; left: 55%; width: 40%; }
-
-    /* Kit completo */
     #kit_sim { top: 51%; left: 40%; }
     #kit_nao { top: 51%; left: 47%; }
     #obs_kit { top: 53.6%; left: 53%; width: 60%; }
-
-    /* Bom estado */
     #estado_sim { top: 58.8%; left: 66%; }
     #estado_nao { top: 58.8%; left: 74%; }
     #obs_estado { top: 62%; left: 52%; width: 60%; }
-
-    /* Dados finais */
     #protocolo { top: 70.3%; left: 50%; width: 20%; }
     #tecnico { top: 74.7%; left: 60%; width: 50%; }
     #responsavel { top: 79%; left: 50%; width: 50%; }
     #parentesco { top: 83.3%; left: 50%; width: 50%; }
-
-    .actions {
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    button {
-      padding: 10px 20px;
-      margin: 5px;
-      font-size: 16px;
-      background: #2E8B57;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    button:hover {
-      background: #246b45;
-    }
+    .actions { margin-top: 20px; text-align: center; }
+    button { padding: 10px 20px; margin: 5px; font-size: 16px; background: #2E8B57; color: white; border: none; cursor: pointer; border-radius: 5px; }
+    button:hover { background: #246b45; }
   </style>
 </head>
 <body>
-    <div class="form-container" id="formulario">
-        <!-- Cidade, dia, mês e ano - Campos do formulário -->
-            <input type="text" id="cidade" class="campo" placeholder="Cidade">
-            <input type="text" id="dia" class="campo" placeholder="dia">
-            <input type="text" id="mes" class="campo" placeholder="Mês">
-            <input type="text" id="ano" class="campo" placeholder="Ano">
+  <div class="form-container" id="formulario">
+    <input type="text" id="cidade" class="campo" placeholder="Cidade">
+    <input type="text" id="dia" class="campo" placeholder="dia">
+    <input type="text" id="mes" class="campo" placeholder="Mês">
+    <input type="text" id="ano" class="campo" placeholder="Ano">
+    <input type="text" id="cliente" class="campo" placeholder="Nome do cliente">
+    <input type="text" id="cpf" class="campo" placeholder="CPF do cliente">
+    <input type="checkbox" id="tv" class="campo">
+    <input type="checkbox" id="ponto" class="campo">
+    <input type="checkbox" id="internet" class="campo">
+    <input type="checkbox" id="telefonia" class="campo">
+    <input type="checkbox" id="onu_check" class="campo">
+    <input type="text" id="onu" class="campo" placeholder="MAC ONU">
+    <input type="checkbox" id="receptor_check" class="campo">
+    <input type="text" id="receptor" class="campo" placeholder="MAC Receptor">
+    <input type="checkbox" id="roteador_check" class="campo">
+    <input type="text" id="roteador" class="campo" placeholder="N/S Roteador">
+    <input type="checkbox" id="telefone_check" class="campo">
+    <input type="text" id="telefone" class="campo" placeholder="N/S Telefone">
+    <input type="checkbox" id="kit_sim" class="campo">
+    <input type="checkbox" id="kit_nao" class="campo">
+    <input type="text" id="obs_kit" class="campo" placeholder="Kit">
+    <input type="checkbox" id="estado_sim" class="campo">
+    <input type="checkbox" id="estado_nao" class="campo">
+    <input type="text" id="obs_estado" class="campo" placeholder="Estão em bom Estado">
+    <input type="text" id="protocolo" class="campo" placeholder="Protocolo">
+    <input type="text" id="tecnico" class="campo" placeholder="Técnico responsável">
+    <input type="text" id="responsavel" class="campo" placeholder="Responsável pela devolução">
+    <input type="text" id="parentesco" class="campo" placeholder="Parentesco">
+  </div>
 
-        <!-- Nome do cliente -->
-      <input type="text" id="cliente" class="campo" placeholder="Nome do cliente">
-      <input type="text" id="cpf" class="campo" placeholder="CPF do cliente">
+  <div class="actions">
+    <button onclick="salvarImagem()">💾 Salvar como Imagem</button>
+  </div>
 
-      <!-- Serviços -->
-      <input type="checkbox" id="tv" class="campo">
-      <input type="checkbox" id="ponto" class="campo">
-      <input type="checkbox" id="internet" class="campo">
-      <input type="checkbox" id="telefonia" class="campo">
-
-      <!-- Equipamentos -->
-      <input type="checkbox" id="onu_check" class="campo">
-      <input type="text" id="onu" class="campo" placeholder="MAC ONU">
-      <input type="checkbox" id="receptor_check" class="campo">
-      <input type="text" id="receptor" class="campo" placeholder="MAC Receptor">
-      <input type="checkbox" id="roteador_check" class="campo">
-      <input type="text" id="roteador" class="campo" placeholder="N/S Roteador">
-      <input type="checkbox" id="telefone_check" class="campo">
-      <input type="text" id="telefone" class="campo" placeholder="N/S Telefone">
-
-      <!-- Kit -->
-      <input type="checkbox" id="kit_sim" class="campo">
-      <input type="checkbox" id="kit_nao" class="campo">
-      <input type="text" id="obs_kit" class="campo" placeholder="Kit">
-
-      <!-- Estado -->
-      <input type="checkbox" id="estado_sim" class="campo">
-      <input type="checkbox" id="estado_nao" class="campo">
-      <input type="text" id="obs_estado" class="campo" placeholder="Estão em bom Estado">
-
-      <!-- Dados finais -->
-      <input type="text" id="protocolo" class="campo" placeholder="Protocolo">
-      <input type="text" id="tecnico" class="campo" placeholder="Técnico responsável">
-      <input type="text" id="responsavel" class="campo" placeholder="Responsável pela devolução">
-      <input type="text" id="parentesco" class="campo" placeholder="Parentesco">
-    </div>
-
-    <div class="actions">
-      <button onclick="salvarImagem()">💾 Salvar como Imagem</button>
-    </div>
-
-  <!-- Biblioteca para salvar imagem -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
   <script>
-    // Máscara de MAC address para ONU e Receptor
     function aplicarMascaraMac(input) {
       input.addEventListener('input', function() {
         let valor = this.value.replace(/[^0-9A-Fa-f]/g, '').toUpperCase();
         let resultado = '';
-        
         for (let i = 0; i < valor.length && i < 12; i++) {
-          if (i > 0 && i % 2 === 0) {
-            resultado += ':';
-          }
+          if (i > 0 && i % 2 === 0) resultado += ':';
           resultado += valor[i];
         }
-        
         this.value = resultado;
       });
     }
-    
-    // Máscara de CPF: XXX•••-XX (3 visíveis, 3 ocultos com •, 3 ocultos sem exibir, 2 visíveis)
+
     function aplicarMascaraCpf(input) {
-      input.addEventListener('input', function() {
-        let valor = this.value.replace(/[^0-9]/g, '').slice(0, 11);
-        let resultado = '';
-        
-        if (valor.length > 0) {
-          // Primeiros 3 dígitos visíveis
-          resultado += valor.substring(0, 3);
+      let primeiros = '';   // até 3 dígitos
+      let ultimos   = '';   // até 2 dígitos
+      let fase = 1;         // 1 = digitando primeiros, 2 = digitando últimos
+
+      function atualizar() {
+        if (primeiros.length < 3) {
+          input.value = primeiros;
+          fase = 1;
+        } else if (ultimos.length === 0) {
+          input.value = primeiros + '.XXX.XXX-';
+          fase = 2;
+          setTimeout(() => input.setSelectionRange(input.value.length, input.value.length), 0);
+        } else {
+          input.value = primeiros + '.XXX.XXX-' + ultimos;
+          fase = 2;
+          setTimeout(() => input.setSelectionRange(input.value.length, input.value.length), 0);
         }
-        if (valor.length > 3) {
-          // Próximos 3 dígitos (4-6) escondidos com •
-          resultado += '•••';
+      }
+
+      input.addEventListener('keydown', function(e) {
+        const isNumero = e.key >= '0' && e.key <= '9';
+
+        if (e.key === 'Backspace') {
+          e.preventDefault();
+          if (fase === 2 && ultimos.length > 0) {
+            ultimos = ultimos.slice(0, -1);
+          } else if (fase === 2 && ultimos.length === 0) {
+            fase = 1;
+            primeiros = primeiros.slice(0, -1);
+          } else {
+            primeiros = primeiros.slice(0, -1);
+          }
+          atualizar();
+          return;
         }
-        if (valor.length > 9) {
-          // Últimos 2 dígitos (10-11) visíveis após hífen
-          resultado += '-' + valor.substring(9, 11);
+
+        if (!isNumero) {
+          e.preventDefault();
+          return;
         }
-        
-        this.value = resultado;
-        
-        // Pular cursor para o 10º dígito automaticamente
-        if (valor.length === 9) {
-          setTimeout(() => {
-            this.setSelectionRange(this.value.length, this.value.length);
-          }, 0);
+
+        e.preventDefault();
+
+        if (fase === 1) {
+          if (primeiros.length < 3) {
+            primeiros += e.key;
+            atualizar();
+            if (primeiros.length === 3) {
+              fase = 2;
+              atualizar();
+            }
+          }
+        } else {
+          if (ultimos.length < 2) {
+            ultimos += e.key;
+            atualizar();
+          }
         }
       });
-      
-      // Controlar navegação com teclado
-      input.addEventListener('keydown', function(e) {
-        let valor = this.value.replace(/[^0-9]/g, '');
-        
-        // Se tenta navegar para trás nos dígitos ocultos, volta para o 3º dígito
-        if (e.key === 'ArrowLeft' && valor.length > 3 && valor.length <= 9) {
-          e.preventDefault();
-          this.setSelectionRange(3, 3);
-        }
+
+      input.addEventListener('input', function() {
+        atualizar();
       });
     }
-    
-    // Aplicar máscara nos campos ONU, Receptor e Roteador
+
     aplicarMascaraMac(document.getElementById('onu'));
     aplicarMascaraMac(document.getElementById('receptor'));
     aplicarMascaraMac(document.getElementById('roteador'));
-    
-    // Aplicar máscara no CPF
     aplicarMascaraCpf(document.getElementById('cpf'));
-    
+
     function salvarImagem() {
       html2canvas(document.getElementById("formulario")).then(canvas => {
         const link = document.createElement("a");
