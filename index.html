@@ -172,41 +172,29 @@
       });
     }
     
-    // Máscara de CPF: XXX.•••.•••-XX (esconde dígitos 4-9) com cursor inteligente
+    // Máscara de CPF: XXX•••-XX (3 visíveis, 3 ocultos com •, 3 ocultos sem exibir, 2 visíveis)
     function aplicarMascaraCpf(input) {
       input.addEventListener('input', function() {
         let valor = this.value.replace(/[^0-9]/g, '').slice(0, 11);
         let resultado = '';
         
         if (valor.length > 0) {
-          // Primeiros 3 dígitos
+          // Primeiros 3 dígitos visíveis
           resultado += valor.substring(0, 3);
         }
         if (valor.length > 3) {
-          // Próximos 3 dígitos escondidos com •
-          resultado += '.•••';
-        }
-        if (valor.length > 6) {
-          // Próximos 3 dígitos escondidos com •
-          resultado += '.•••';
+          // Próximos 3 dígitos (4-6) escondidos com •
+          resultado += '•••';
         }
         if (valor.length > 9) {
-          // Últimos 2 dígitos visíveis
+          // Últimos 2 dígitos (10-11) visíveis após hífen
           resultado += '-' + valor.substring(9, 11);
         }
         
         this.value = resultado;
         
-        // Posicionar cursor no final para o 10º dígito
+        // Pular cursor para o 10º dígito automaticamente
         if (valor.length === 9) {
-          // Posição do cursor após o hífen
-          setTimeout(() => {
-            this.setSelectionRange(this.value.length, this.value.length);
-          }, 0);
-        }
-        
-        // Pular direto para os últimos 2 dígitos quando houver 9 dígitos
-        if (valor.length === 10 || valor.length === 11) {
           setTimeout(() => {
             this.setSelectionRange(this.value.length, this.value.length);
           }, 0);
@@ -217,7 +205,7 @@
       input.addEventListener('keydown', function(e) {
         let valor = this.value.replace(/[^0-9]/g, '');
         
-        // Se tenta voltar nos dígitos ocultos, pula para o 3º dígito
+        // Se tenta navegar para trás nos dígitos ocultos, volta para o 3º dígito
         if (e.key === 'ArrowLeft' && valor.length > 3 && valor.length <= 9) {
           e.preventDefault();
           this.setSelectionRange(3, 3);
