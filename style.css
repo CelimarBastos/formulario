@@ -12,7 +12,7 @@ body {
   width: 100%;
   max-width: 900px;
   aspect-ratio: 8/11;
-  background: url('https://raw.githubusercontent.com/CelimarBastos/formulario/main/fundo.JPG') no-repeat center top;
+  background: url('fundo.JPG') no-repeat center top;
   background-size: contain;
 }
 
