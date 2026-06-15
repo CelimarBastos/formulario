@@ -6,7 +6,8 @@
   <style>
     body { margin: 0; padding: 0; font-family: Arial, sans-serif; display: flex; justify-content: center; background: #f0f0f0; }
     .form-container { position: relative; width: 100%; max-width: 900px; aspect-ratio: 8/11; background: url('https://raw.githubusercontent.com/CelimarBastos/formulario/main/fundo.JPG') no-repeat center top; background-size: contain; }
-    .campo { position: absolute; transform: translate(-50%, -50%); font-size: 9px; padding: 2px; background: transparent; border: none; color: black; }
+    .campo { position: absolute; transform: translate(-50%, -50%); font-size: 9px; padding: 2px; background: transparent; border: none; color: black; opacity: 0.7; }
+    .campo:focus { opacity: 1; outline: none; }
     input[type="checkbox"], input[type="radio"] { background: transparent; accent-color: #060e09; width: 9px; height: 20px; }
     #cliente { top: 21%; left: 85%; width: 40%; }
     #cpf { top: 23.7%; left: 85%; width: 28%; }
