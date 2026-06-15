@@ -172,22 +172,26 @@
       });
     }
     
-    // Máscara de CPF: XXX.XXX.XXX-XX
+    // Máscara de CPF: XXX.•••.•••-XX (esconde dígitos 4-9)
     function aplicarMascaraCpf(input) {
       input.addEventListener('input', function() {
         let valor = this.value.replace(/[^0-9]/g, '').slice(0, 11);
         let resultado = '';
         
         if (valor.length > 0) {
+          // Primeiros 3 dígitos
           resultado += valor.substring(0, 3);
         }
         if (valor.length > 3) {
-          resultado += '.' + valor.substring(3, 6);
+          // Próximos 3 dígitos escondidos com •
+          resultado += '.•••';
         }
         if (valor.length > 6) {
-          resultado += '.' + valor.substring(6, 9);
+          // Próximos 3 dígitos escondidos com •
+          resultado += '.•••';
         }
         if (valor.length > 9) {
+          // Últimos 2 dígitos visíveis
           resultado += '-' + valor.substring(9, 11);
         }
         
