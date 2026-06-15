@@ -172,7 +172,7 @@
       });
     }
     
-    // Máscara de CPF: XXX.•••.•••-XX (esconde dígitos 4-9)
+    // Máscara de CPF: XXX.•••.•••-XX (esconde dígitos 4-9) com cursor inteligente
     function aplicarMascaraCpf(input) {
       input.addEventListener('input', function() {
         let valor = this.value.replace(/[^0-9]/g, '').slice(0, 11);
@@ -196,6 +196,32 @@
         }
         
         this.value = resultado;
+        
+        // Posicionar cursor no final para o 10º dígito
+        if (valor.length === 9) {
+          // Posição do cursor após o hífen
+          setTimeout(() => {
+            this.setSelectionRange(this.value.length, this.value.length);
+          }, 0);
+        }
+        
+        // Pular direto para os últimos 2 dígitos quando houver 9 dígitos
+        if (valor.length === 10 || valor.length === 11) {
+          setTimeout(() => {
+            this.setSelectionRange(this.value.length, this.value.length);
+          }, 0);
+        }
+      });
+      
+      // Controlar navegação com teclado
+      input.addEventListener('keydown', function(e) {
+        let valor = this.value.replace(/[^0-9]/g, '');
+        
+        // Se tenta voltar nos dígitos ocultos, pula para o 3º dígito
+        if (e.key === 'ArrowLeft' && valor.length > 3 && valor.length <= 9) {
+          e.preventDefault();
+          this.setSelectionRange(3, 3);
+        }
       });
     }
     
