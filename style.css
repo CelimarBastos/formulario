@@ -66,7 +66,7 @@ body {
 .campo {
   position: absolute;
   transform: translate(-50%, -50%);
-  font-size: 14px;
+  font-size: 12px;
   padding: 4px 8px;
   background: transparent;
   border: none;
