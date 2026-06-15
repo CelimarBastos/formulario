@@ -66,12 +66,13 @@ body {
 .campo {
   position: absolute;
   transform: translate(-50%, -50%);
-  font-size: 9px;
-  padding: 2px;
+  font-size: 14px;
+  padding: 4px 8px;
   background: transparent;
   border: none;
   color: black;
   transition: all 0.3s ease;
+  font-family: Arial, sans-serif;
 }
 
 .campo:focus {
@@ -122,11 +123,6 @@ input[type="checkbox"], input[type="radio"] {
 #tecnico { top: 74.7%; left: 60%; width: 50%; }
 #responsavel { top: 79%; left: 50%; width: 50%; }
 #parentesco { top: 83.3%; left: 50%; width: 50%; }
-
-.actions {
-  margin-top: 20px;
-  text-align: center;
-}
 
 .actions {
   margin-top: 20px;
