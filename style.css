@@ -1,14 +1,15 @@
 body {
   margin: 0;
-  padding: 0;
+  padding: 20px;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   animation: backgroundShift 15s ease infinite;
+  gap: 20px;
 }
 
 @keyframes backgroundShift {
@@ -16,10 +17,18 @@ body {
   50% { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); }
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}
+
 .form-container {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  max-width: 900px;
   aspect-ratio: 8/11;
   background: url('fundo.JPG') no-repeat center center;
   background-size: contain;
@@ -41,15 +50,15 @@ body {
 
 @media (max-width: 768px) {
   .form-container {
-    width: 100vw;
-    height: 100vh;
+    max-width: 100%;
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .form-container {
-    width: 100vw;
-    height: 100vh;
+    max-width: 100%;
+    width: 100%;
     background-size: cover;
   }
 }
@@ -123,6 +132,10 @@ input[type="checkbox"], input[type="radio"] {
   margin-top: 20px;
   text-align: center;
   animation: fadeIn 0.8s ease-out 0.3s both;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 @keyframes fadeIn {
@@ -138,7 +151,6 @@ input[type="checkbox"], input[type="radio"] {
 
 button {
   padding: 12px 30px;
-  margin: 10px auto;
   font-size: 16px;
   font-weight: bold;
   background: linear-gradient(135deg, #2E8B57 0%, #246b45 100%);
@@ -149,6 +161,7 @@ button {
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(46, 139, 87, 0.3);
   display: inline-block;
+  white-space: nowrap;
 }
 
 button:hover {
