@@ -121,9 +121,13 @@
       <input type="checkbox" id="telefonia" class="campo">
 
       <!-- Equipamentos -->
+      <input type="checkbox" id="onu_check" class="campo">
       <input type="text" id="onu" class="campo" placeholder="MAC ONU">
+      <input type="checkbox" id="receptor_check" class="campo">
       <input type="text" id="receptor" class="campo" placeholder="MAC Receptor">
+      <input type="checkbox" id="roteador_check" class="campo">
       <input type="text" id="roteador" class="campo" placeholder="N/S Roteador">
+      <input type="checkbox" id="telefone_check" class="campo">
       <input type="text" id="telefone" class="campo" placeholder="N/S Telefone">
 
       <!-- Kit -->
@@ -151,6 +155,27 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
   <script>
+    // Máscara de MAC address para ONU e Receptor
+    function aplicarMascaraMac(input) {
+      input.addEventListener('input', function() {
+        let valor = this.value.replace(/[^0-9A-Fa-f]/g, '').toUpperCase();
+        let resultado = '';
+        
+        for (let i = 0; i < valor.length && i < 12; i++) {
+          if (i > 0 && i % 2 === 0) {
+            resultado += ':';
+          }
+          resultado += valor[i];
+        }
+        
+        this.value = resultado;
+      });
+    }
+    
+    // Aplicar máscara nos campos ONU e Receptor
+    aplicarMascaraMac(document.getElementById('onu'));
+    aplicarMascaraMac(document.getElementById('receptor'));
+    
     function salvarImagem() {
       html2canvas(document.getElementById("formulario")).then(canvas => {
         const link = document.createElement("a");

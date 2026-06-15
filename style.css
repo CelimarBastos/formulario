@@ -96,6 +96,11 @@ input[type="checkbox"], input[type="radio"] {
 #roteador { top: 45%; left: 55%; width: 40%; }
 #telefone { top: 48%; left: 55%; width: 40%; }
 
+#onu_check { top: 37.3%; left: 50%; }
+#receptor_check { top: 41%; left: 50%; }
+#roteador_check { top: 45%; left: 50%; }
+#telefone_check { top: 48%; left: 50%; }
+
 #kit_sim { top: 51%; left: 40%; }
 #kit_nao { top: 51%; left: 47%; }
 #obs_kit { top: 53.6%; left: 53%; width: 60%; }
