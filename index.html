@@ -145,8 +145,7 @@
     </div>
 
     <div class="actions">
-      <button onclick="enviarWhatsApp()">Enviar via WhatsApp</button>
-      <button onclick="salvarImagem()">Salvar como Imagem</button>
+      <button onclick="salvarImagem()">💾 Salvar como Imagem</button>
     </div>
   </div>
 
@@ -154,21 +153,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
   <script>
-    function enviarWhatsApp() {
-      const cliente = document.getElementById("responsavel").value;
-      const protocolo = document.getElementById("protocolo").value;
-      const tecnico = document.getElementById("tecnico").value;
-
-      const mensagem = `*Ordem de Serviço - Brisanet*\nProtocolo: ${protocolo}\nTécnico: ${tecnico}\nResponsável: ${cliente}`;
-      const numero = "5588999999999"; // substitua pelo número de destino
-      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-      window.open(url, "_blank");
-    }
-
     function salvarImagem() {
       html2canvas(document.getElementById("formulario")).then(canvas => {
         const link = document.createElement("a");
-        link.download = "ordem_servico.png";
+        link.download = "ordem_servico_" + new Date().getTime() + ".png";
         link.href = canvas.toDataURL();
         link.click();
       });
